@@ -1,0 +1,17 @@
+img{
+    width: 200px;
+    height: 200px;
+}
+.imagediv{
+    text-align: center;
+}
+a{
+    text-decoration:none;
+}
+.footer-copyright{
+    background-color: rgb(47, 160, 235);
+    color: white;
+}
+footer{
+    background-color: rgb(240, 240, 240);
+}

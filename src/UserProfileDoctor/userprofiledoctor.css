@@ -1,0 +1,25 @@
+.img img {
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+}
+
+.main-info {
+  display: flex;
+  font-size: 1rem;
+}
+.left-info {
+  margin-left: 150px;
+  width: 30%;
+  margin-top: 15px;
+  font-weight: bold;
+}
+.right-info {
+  margin-left: 180px;
+  width: 30%;
+  margin-top: 15px;
+}
+.main_content {
+  margin-left: 250px;
+}

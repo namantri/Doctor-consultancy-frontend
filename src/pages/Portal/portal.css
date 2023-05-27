@@ -1,0 +1,92 @@
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+  border: 1px black solid;
+  margin: 0 auto;
+}
+
+.flex-item {
+  width: 100px;
+  height: 200px;
+  border: 1px black solid;
+  background: #369;
+}
+img-wrapper {
+  background: #afcfed;
+  padding-top: 12px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 0px;
+}
+
+#services {
+  /* margin-left: 30px;
+	margin-top: 160px;
+	margin-right: auto; */
+  margin: 34px;
+  display: flex;
+}
+
+#services .box {
+  border: 2px solid brown;
+  padding: 40px;
+  margin: 3px 6px;
+  border-radius: 28px;
+  background: white;
+  width: 400px;
+  height: 300px;
+}
+#services .box img {
+  margin: auto;
+  display: block;
+  height: 120px;
+  width: 120px;
+}
+#services .box p {
+  font-family: Georgia;
+}
+.h-secondary {
+  font-size: x-large;
+}
+.consult {
+  /* margin-left: 30px;
+	margin-top: 160px;
+	margin-right: auto; */
+  margin: 34px;
+  display: flex;
+}
+
+.consult .boxx1 {
+  border: 2px solid white;
+  padding: 40px;
+  margin: 3px 6px;
+  border-radius: 28px;
+  background: white;
+  width: 400px;
+  height: 100px;
+}
+.consult .boxx1 img {
+  margin: auto;
+  display: block;
+  height: 100px;
+  width: 100px;
+}
+.consult .boxx1 p {
+  font-family: Georgia;
+}
+.h-secondary {
+  font-size: x-large;
+}
+
+.consult h2 {
+  font-size: 1rem;
+}
+
+.lines {
+  margin-left: 1rem;
+}
+.space {
+  margin-top: 200px;
+}

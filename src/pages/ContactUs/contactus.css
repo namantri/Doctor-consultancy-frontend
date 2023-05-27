@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+} */
+/* body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+} */
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.left-page header {
+  font-size: 3rem;
+  color: #da70d6;
+  font-weight: 500;
+  text-align: center;
+}
+.container .left-page {
+  width: 40%;
+}
+.container .left-page img {
+  display: block;
+  width: 120%;
+  padding-right: 40px;
+}
+.right-page {
+  width: 60%;
+  align-items: center;
+  text-align: center;
+}
+.right-page header {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+.form {
+  margin-top: 30px;
+  align-items: center;
+  text-align: left;
+  margin-left: 140px;
+}
+/* .form .input-box {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.input-box label {
+  color: #333;
+}
+.continue-bt {
+  align-items: center;
+  margin-left: 50px;
+}
+
+.inputField {
+  padding: 8px;
+  border-radius: 10px;
+}
+label {
+  width: 100px;
+  display: inline-block;
+}
+
+.inputField-message {
+  padding: 8px;
+  border-radius: 10px;
+  height: 150px;
+  width: 300px;
+} */

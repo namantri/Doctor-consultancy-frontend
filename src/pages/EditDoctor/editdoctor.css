@@ -1,0 +1,21 @@
+.input-box1 {
+  padding-right: 50px;
+}
+.input-box1 label {
+  font-size: 1rem;
+  padding-right: 20px;
+  width: 20%;
+  margin-left: 100px;
+}
+.input-box1 input {
+  border-radius: 5px;
+  height: 40px;
+  text-align: center;
+  margin-left: 200px;
+  width: 30%;
+  color: black;
+}
+
+.main_content {
+  margin-left: 250px;
+}

@@ -1,0 +1,38 @@
+/* .services{
+	
+	margin: 34px;
+	display: flex;
+
+}  */
+
+.react-multi-carousel-track > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.boxx2 {
+  border: 1px solid black;
+  padding: 0px;
+  margin: 3px 6px;
+  border-radius: 28px;
+  background: white;
+  width: 270px;
+  height: 350px;
+}
+.boxx2 > img {
+  border-radius: 28px;
+  margin: auto;
+  display: block;
+  height: 200px;
+  width: 268px;
+  margin-bottom: 15px;
+}
+.boxx2 > h5 {
+  font-family: Georgia;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+.boxx2 > a {
+  font-family: Georgia;
+  margin-left: 30px;
+}
