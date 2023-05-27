@@ -13,11 +13,11 @@ function Login() {
   const [Email, SetEmail] = useState("");
   const [Password, SetPassword] = useState("");
 
-  const handleEmailChange = (value) => {
-    SetEmail(value);
+  const handleEmailChange = (e) => {
+    SetEmail(e.target.value);
   };
-  const handlePasswordChange = (value) => {
-    SetPassword(value);
+  const handlePasswordChange = (e) => {
+    SetPassword(e.target.value);
   };
 
   const handleSave = (e) => {
@@ -183,13 +183,19 @@ function Login() {
           <p>Welcome Back, Please Enter Your details</p>
         </div>
 
-        <form onsubmit="return false;" class="form-login login">
+        <form onSubmit={handleSave} class="form-login login">
           <div class="email-input">
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <span id="seperator"></span>
             <div class="input-container">
               <p class="sub-title">Email Address</p>
-              <input type="email" name="usermail" id="email" />
+              <input
+                type="email"
+                name="usermail"
+                id="email"
+                value={Email}
+                onChange={handleEmailChange}
+              />
             </div>
           </div>
 
@@ -198,11 +204,27 @@ function Login() {
             <span id="seperator"></span>
             <div class="input-container">
               <p class="sub-title">Password</p>
-              <input type="password" name="userpass" id="password" />
+              <input
+                type="password"
+                name="userpass"
+                id="password"
+                value={Password}
+                onChange={handlePasswordChange}
+              />
             </div>
           </div>
 
           <button id="submit">Login</button>
+          <p className="small fw-bold mt-2 pt-1 mb-0">
+            Don't have an account?{" "}
+            <a
+              href="#!"
+              className="link-danger"
+              onClick={() => navigate("/signup")}
+            >
+              Register
+            </a>
+          </p>
         </form>
 
         <article class="outro">

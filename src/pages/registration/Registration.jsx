@@ -240,7 +240,90 @@
 // export default Registration;
 import React from "react";
 import "./registration.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import RegistrationDoctor from "../RegistrationDoctor/RegistrationDoctor";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import swal from "sweetalert2";
 const Registration = () => {
+  const navigate = useNavigate();
+  const [Name, SetName] = useState("");
+  const [Email, SetEmail] = useState("");
+  const [Password, SetPassword] = useState("");
+
+  const [Role, SetRole] = useState("");
+
+  const handleNameChange = (e) => {
+    SetName(e.target.value);
+  };
+  const handleEmailChange = (e) => {
+    SetEmail(e.target.value);
+  };
+  const handlePasswordChange = (e) => {
+    SetPassword(e.target.value);
+  };
+
+  const handleRoleChange = (e) => {
+    SetRole(e.target.value);
+  };
+
+  const checkRole = () => {
+    navigate("/registrationpatient");
+  };
+
+  const handleSave = (e) => {
+    e.preventDefault();
+    if (!Name || !Email || !Password || !Role) {
+      swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Some fields are empty",
+      });
+      navigate("/signup");
+    } else {
+      const data = {
+        name: Name,
+        email: Email,
+        password: Password,
+        role: Role,
+      };
+      const url = "http://localhost:5269/api/Auth/SignUp";
+      axios
+        .post(url, data)
+        .then((result) => {
+          //alert(result.data.message);
+          if (result.data.message == "User already exists") {
+            swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "User already exists",
+            });
+            navigate("/signup");
+          } else if (result.data.message == "Something went wrong") {
+            swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong",
+            });
+            navigate("/signup");
+          } else if (result.data.message == "Successful") {
+            swal.fire("Good job!", "Registration Successfull !", "success");
+
+            navigate("/signin");
+          } else if (result.data.message == "Invalid Email Address") {
+            swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Email address is invalid",
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
   return (
     <section class="login-container">
       <article class="form-container">
@@ -249,13 +332,19 @@ const Registration = () => {
           <p>Enter your personal details and start journey with us</p>
         </div>
 
-        <form onsubmit="return false;" class="form-login">
+        <form onSubmit={handleSave} class="form-login">
           <div class="email-input">
             <i class="fa-solid fa-user"></i>
             <span id="seperator"></span>
             <div class="input-container">
               <p class="sub-title">Name</p>
-              <input type="text" name="name" id="name" />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={Name}
+                onChange={handleNameChange}
+              />
             </div>
           </div>
           <div class="email-input">
@@ -263,7 +352,13 @@ const Registration = () => {
             <span id="seperator"></span>
             <div class="input-container">
               <p class="sub-title">Email Address</p>
-              <input type="email" name="usermail" id="email" />
+              <input
+                type="email"
+                name="usermail"
+                id="email"
+                value={Email}
+                onChange={handleEmailChange}
+              />
             </div>
           </div>
 
@@ -272,7 +367,13 @@ const Registration = () => {
             <span id="seperator"></span>
             <div class="input-container">
               <p class="sub-title">Password</p>
-              <input type="password" name="userpass" id="password" />
+              <input
+                type="password"
+                name="userpass"
+                id="password"
+                value={Password}
+                onChange={handlePasswordChange}
+              />
             </div>
           </div>
           <div class="email-input">
@@ -280,7 +381,7 @@ const Registration = () => {
             <span id="seperator"></span>
             <div class="input-container">
               <p class="sub-title">Role</p>
-              <div>
+              <div onChange={handleRoleChange}>
                 <input
                   type="radio"
                   id="doctor"
@@ -305,7 +406,13 @@ const Registration = () => {
             </div>
           </div>
 
-          <button id="submit">Login</button>
+          <button id="submit">Register</button>
+          <p className="nextoption">
+            Patient? To complete registration{" "}
+            <a href="" onClick={() => checkRole()}>
+              click here
+            </a>
+          </p>
         </form>
 
         <article class="outro">

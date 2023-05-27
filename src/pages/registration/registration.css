@@ -43,18 +43,17 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
 }
 
 .intro {
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 0.6rem;
+  gap: 0.3rem;
 }
 
 .intro h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   font-family: "Roboto";
 }
