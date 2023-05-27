@@ -167,156 +167,167 @@ function RegistrationDoctor() {
       });
   };
   return (
-    <section className="container" style={{ maxWidth: "1500px" }}>
-      <form className="form">
-        <div>
-          <div onClick={handleImageClick}>
-            {Image ? (
-              <img src={Image} alt="" />
-            ) : (
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZRoShkMgb_Ahu5LneLySnJb89rYL6WC5bAcN6rzhp&s"
-                alt=""
+    <>
+      <h1 style={{ marginLeft: "38vw" }}>Register Doctor</h1>
+      <section
+        className="container registration doctor"
+        style={{ maxWidth: "1500px" }}
+      >
+        <form className="form" style={{ marginLeft: "0px" }}>
+          <div>
+            <div onClick={handleImageClick}>
+              {Image ? (
+                <img
+                  src={Image}
+                  alt=""
+                  style={{ marginLeft: "33vw", borderRadius: "50%" }}
+                />
+              ) : (
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZRoShkMgb_Ahu5LneLySnJb89rYL6WC5bAcN6rzhp&s"
+                  alt=""
+                  style={{ marginLeft: "33vw", borderRadius: "50%" }}
+                />
+              )}
+
+              <input
+                type="file"
+                ref={inputRef}
+                onChange={handleImageChange}
+                style={{ display: "none" }}
+              ></input>
+            </div>
+          </div>
+          <div class="column">
+            {" "}
+            <div className="input-box">
+              <label> Full Name</label>
+              <input
+                type="text"
+                placeholder={doctor.name}
+                required
+                onChange={(e) => handleNameChange(e.target.value)}
               />
-            )}
+            </div>
+            <div className="input-box">
+              <label>Email</label>
+              <input
+                type="text"
+                placeholder={doctor.email}
+                required
+                onChange={(e) => handleEmailChange(e.target.value)}
+              />
+            </div>
+          </div>
 
-            <input
-              type="file"
-              ref={inputRef}
-              onChange={handleImageChange}
-              style={{ display: "none" }}
-            ></input>
-          </div>
-        </div>
-        <div class="column">
-          {" "}
-          <div className="input-box">
-            <label> Full Name</label>
-            <input
-              type="text"
-              placeholder={doctor.name}
-              required
-              onChange={(e) => handleNameChange(e.target.value)}
-            />
-          </div>
-          <div className="input-box">
-            <label>Email</label>
-            <input
-              type="text"
-              placeholder={doctor.email}
-              required
-              onChange={(e) => handleEmailChange(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="column">
-          <div className="input-box">
-            <label>Phone Number</label>
-            <input
-              type="number"
-              placeholder="Enter phone number"
-              required
-              onChange={(e) => handlePhoneNumberChange(e.target.value)}
-            />
-          </div>
-          <div className="input-box">
-            <label>Birth Date</label>
-            <input
-              type="date"
-              placeholder="Enter birth date"
-              required
-              onChange={(e) => handleBirthDateChange(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="input-box address">
           <div className="column">
-            <div className="select-box">
-              <select value={Gender} onChange={handleGenderChange}>
-                <option hidden>Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
-              </select>
+            <div className="input-box">
+              <label>Phone Number</label>
+              <input
+                type="number"
+                placeholder="Enter phone number"
+                required
+                onChange={(e) => handlePhoneNumberChange(e.target.value)}
+              />
             </div>
-            <div className="select-box">
-              <select value={BloodGroup} onChange={handleBloodGroupChange}>
-                <option hidden>Blood Group</option>
-                <option value="A+">A+</option>
-                <option value="B+">B+</option>
-                <option value="O+">O+</option>
-                <option value="AB+">AB+</option>
-                <option value="A-">A-</option>
-                <option value="B-">B-</option>
-                <option value="O-">O-</option>
-                <option value="AB-">AB-</option>
-              </select>
+            <div className="input-box">
+              <label>Birth Date</label>
+              <input
+                type="date"
+                placeholder="Enter birth date"
+                required
+                onChange={(e) => handleBirthDateChange(e.target.value)}
+              />
             </div>
           </div>
-        </div>
-        <div className="input-box">
-          <label> Qualification</label>
-          <input
-            type="text"
-            placeholder="Enter your qualification"
-            required
-            onChange={(e) => handleQualificationChange(e.target.value)}
-          />
-        </div>
-        <div className="column">
+          <div className="input-box address">
+            <div className="column">
+              <div className="select-box">
+                <select value={Gender} onChange={handleGenderChange}>
+                  <option hidden>Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+              <div className="select-box">
+                <select value={BloodGroup} onChange={handleBloodGroupChange}>
+                  <option hidden>Blood Group</option>
+                  <option value="A+">A+</option>
+                  <option value="B+">B+</option>
+                  <option value="O+">O+</option>
+                  <option value="AB+">AB+</option>
+                  <option value="A-">A-</option>
+                  <option value="B-">B-</option>
+                  <option value="O-">O-</option>
+                  <option value="AB-">AB-</option>
+                </select>
+              </div>
+            </div>
+          </div>
           <div className="input-box">
-            <label> Specialization</label>
+            <label> Qualification</label>
             <input
               type="text"
-              placeholder="Enter your Specialization"
+              placeholder="Enter your qualification"
               required
-              onChange={(e) => handleSpecializationChange(e.target.value)}
+              onChange={(e) => handleQualificationChange(e.target.value)}
             />
           </div>
-          <div className="input-box">
-            <label>Total Experience</label>
-            <input
-              type="number"
-              placeholder="Enter  total number of Experience"
-              required
-              onChange={(e) => handleTotalExperienceChange(e.target.value)}
-            />
-          </div>
-          <div className="input-box">
-            <label>Doctor Fees</label>
-            <input
-              type="text"
-              placeholder="Enter you charges"
-              required
-              onChange={(e) => handleFeesChange(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="input-box address">
-          <br />
-          <label>Others Details</label>
           <div className="column">
-            <input
-              type="text"
-              placeholder="Enter  other Details"
-              required
-              onChange={(e) => handleDetailsChange(e.target.value)}
-            />
-
-            <div className="select-box">
-              <select value={Language} onChange={handleLanguageChange}>
-                <option hidden>Language</option>
-                <option value="Hindi">Hindi</option>
-                <option value="English">English</option>
-              </select>
+            <div className="input-box">
+              <label> Specialization</label>
+              <input
+                type="text"
+                placeholder="Enter your Specialization"
+                required
+                onChange={(e) => handleSpecializationChange(e.target.value)}
+              />
+            </div>
+            <div className="input-box">
+              <label>Total Experience</label>
+              <input
+                type="number"
+                placeholder="Enter  total number of Experience"
+                required
+                onChange={(e) => handleTotalExperienceChange(e.target.value)}
+              />
+            </div>
+            <div className="input-box">
+              <label>Doctor Fees</label>
+              <input
+                type="text"
+                placeholder="Enter you charges"
+                required
+                onChange={(e) => handleFeesChange(e.target.value)}
+              />
             </div>
           </div>
-        </div>
-        <button onClick={(e) => handleSave(e)}>Submit</button>
-      </form>
-    </section>
+
+          <div className="input-box address">
+            <br />
+            <label>Others Details</label>
+            <div className="column">
+              <input
+                type="text"
+                placeholder="Enter  other Details"
+                required
+                onChange={(e) => handleDetailsChange(e.target.value)}
+              />
+
+              <div className="select-box">
+                <select value={Language} onChange={handleLanguageChange}>
+                  <option hidden>Language</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="English">English</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button onClick={(e) => handleSave(e)}>Submit</button>
+        </form>
+      </section>
+    </>
   );
 }
 export default RegistrationDoctor;

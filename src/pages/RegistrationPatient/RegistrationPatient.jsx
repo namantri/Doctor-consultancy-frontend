@@ -1,5 +1,5 @@
 import React from "react";
-import './RegistrationPatient.css'
+import "./RegistrationPatient.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useRef, useState } from "react";
 import axios from "axios";
@@ -101,7 +101,6 @@ function RegistrationPatient() {
       !BirthDate ||
       !Gender ||
       !BloodGroup ||
-
       !Street1 ||
       !Street2 ||
       !City ||
@@ -137,7 +136,6 @@ function RegistrationPatient() {
       language: Language,
 
       image: Image,
-
     };
 
     const url = "http://localhost:5269/api/Auth/UpdatePatient";
@@ -162,116 +160,169 @@ function RegistrationPatient() {
       });
   };
   return (
+    <>
+      <h1 style={{ marginLeft: "38vw" }}>Register Patient</h1>
+      <section
+        class="container registration doctor"
+        style={{ maxWidth: "1500px" }}
+      >
+        <form class="form" style={{ marginLeft: "0px" }}>
+          <div>
+            <div onClick={handleImageClick}>
+              {Image ? (
+                <img
+                  src={Image}
+                  alt=""
+                  style={{ marginLeft: "17vw", borderRadius: "50%" }}
+                />
+              ) : (
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZRoShkMgb_Ahu5LneLySnJb89rYL6WC5bAcN6rzhp&s"
+                  alt=""
+                  style={{ marginLeft: "17vw", borderRadius: "50%" }}
+                />
+              )}
 
-
-    <section class="container">
-
-      <form class="form">
-        <div>
-          <div onClick={handleImageClick}>
-            {Image ? (
-              <img src={Image} alt="" />
-            ) : (
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZRoShkMgb_Ahu5LneLySnJb89rYL6WC5bAcN6rzhp&s"
-                alt=""
-              />
-            )}
-
+              <input
+                type="file"
+                ref={inputRef}
+                onChange={handleImageChange}
+                style={{ display: "none" }}
+              ></input>
+            </div>
+          </div>
+          <div class="input-box">
+            <label> Full Name</label>
             <input
-              type="file"
-              ref={inputRef}
-              onChange={handleImageChange}
-              style={{ display: "none" }}
-            ></input>
-          </div>
-        </div>
-        <div class="input-box">
-          <label> Full Name</label>
-          <input type="text" placeholder="Enter full name" required onChange={(e) => handleNameChange(e.target.value)} />
-        </div>
-        <div class="input-box">
-          <label>Email</label>
-          <input type="text" placeholder="Enter your Email" required onChange={(e) => handleEmailChange(e.target.value)} />
-        </div>
-
-        <div class="column">
-          <div class="input-box">
-            <label>Phone Number</label>
-            <input type="number" placeholder="Enter phone number" required onChange={(e) => handlePhoneNumberChange(e.target.value)} />
+              type="text"
+              placeholder="Enter full name"
+              required
+              onChange={(e) => handleNameChange(e.target.value)}
+            />
           </div>
           <div class="input-box">
-            <label>Birth Date</label>
-            <input type="date" placeholder="Enter birth date" required onChange={(e) => handleBirthDateChange(e.target.value)} />
+            <label>Email</label>
+            <input
+              type="text"
+              placeholder="Enter your Email"
+              required
+              onChange={(e) => handleEmailChange(e.target.value)}
+            />
           </div>
-        </div>
-        <div class="input-box address">
-          <div class="column">
-            <div class="select-box">
-              <select value={Gender} onChange={handleGenderChange}>
-                <option hidden>Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option vlaue="Others">Others</option>
-              </select>
-            </div>
-            <div class="select-box">
-              <select value={BloodGroup} onChange={handleBloodGroupChange}>
-                <option hidden>Blood Group</option>
-                <option value="A+">A+</option>
-                <option value="B+">B+</option>
-                <option value="O+">O+</option>
-                <option value="AB+">AB+</option>
-                <option value="A-">A-</option>
-                <option value="B-">B-</option>
-                <option value="O-">O-</option>
-                <option value="AB-">AB-</option>
-              </select>
-            </div>
-          </div>
-        </div>
 
-        <div class="input-box address">
-          <label>Address</label>
-          <input type="text" placeholder="Enter street address line 1" required onChange={(e) => handleStreet1Change(e.target.value)} />
-          <input
-            type="text"
-            placeholder="Enter street address line 2"
-            required
-            onChange={(e) => handleStreet2Change(e.target.value)}
-          />
           <div class="column">
-            <div class="select-box">
-              <select value={Country} onChange={handleCountryChange}>
-                <option hidden>Country</option>
-                <option value="America">America</option>
-                <option value="Japan">Japan</option>
-                <option value="India">India</option>
-                <option value="Nepal">Nepal</option>
-              </select>
+            <div class="input-box">
+              <label>Phone Number</label>
+              <input
+                type="number"
+                placeholder="Enter phone number"
+                required
+                onChange={(e) => handlePhoneNumberChange(e.target.value)}
+              />
             </div>
-            <input type="text" placeholder="Enter your city" required onChange={(e) => handleCityChange(e.target.value)} />
-          </div>
-          <div class="column">
-            <input type="text" placeholder="Enter your State" required onChange={(e) => handleStateChange(e.target.value)} />
-            <input type="number" placeholder="Enter postal code" required onChange={(e) => handlePostalCodeChange(e.target.value)} />
-          </div>
-          <br />
-          <h5>Others Details</h5>
-          <div class="column">
-            <input type="text" placeholder="Enter  other Details" required onChange={(e) => handleDetailsChange(e.target.value)} />
-            <div class="select-box">
-              <select value={Language} onChange={handleLanguageChange}>
-                <option hidden>Language</option>
-                <option value="Hindi">Hindi</option>
-                <option option="English">English</option>
-              </select>
+            <div class="input-box">
+              <label>Birth Date</label>
+              <input
+                type="date"
+                placeholder="Enter birth date"
+                required
+                onChange={(e) => handleBirthDateChange(e.target.value)}
+              />
             </div>
           </div>
-        </div>
-        <button onClick={(e) => handleSave(e)}>Submit</button>
-      </form>
-    </section>
-  )
+          <div class="input-box address">
+            <div class="column">
+              <div class="select-box">
+                <select value={Gender} onChange={handleGenderChange}>
+                  <option hidden>Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option vlaue="Others">Others</option>
+                </select>
+              </div>
+              <div class="select-box">
+                <select value={BloodGroup} onChange={handleBloodGroupChange}>
+                  <option hidden>Blood Group</option>
+                  <option value="A+">A+</option>
+                  <option value="B+">B+</option>
+                  <option value="O+">O+</option>
+                  <option value="AB+">AB+</option>
+                  <option value="A-">A-</option>
+                  <option value="B-">B-</option>
+                  <option value="O-">O-</option>
+                  <option value="AB-">AB-</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-box address">
+            <label>Address</label>
+            <input
+              type="text"
+              placeholder="Enter street address line 1"
+              required
+              onChange={(e) => handleStreet1Change(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Enter street address line 2"
+              required
+              onChange={(e) => handleStreet2Change(e.target.value)}
+            />
+            <div class="column">
+              <div class="select-box">
+                <select value={Country} onChange={handleCountryChange}>
+                  <option hidden>Country</option>
+                  <option value="America">America</option>
+                  <option value="Japan">Japan</option>
+                  <option value="India">India</option>
+                  <option value="Nepal">Nepal</option>
+                </select>
+              </div>
+              <input
+                type="text"
+                placeholder="Enter your city"
+                required
+                onChange={(e) => handleCityChange(e.target.value)}
+              />
+            </div>
+            <div class="column">
+              <input
+                type="text"
+                placeholder="Enter your State"
+                required
+                onChange={(e) => handleStateChange(e.target.value)}
+              />
+              <input
+                type="number"
+                placeholder="Enter postal code"
+                required
+                onChange={(e) => handlePostalCodeChange(e.target.value)}
+              />
+            </div>
+            <br />
+            <h5>Others Details</h5>
+            <div class="column">
+              <input
+                type="text"
+                placeholder="Enter  other Details"
+                required
+                onChange={(e) => handleDetailsChange(e.target.value)}
+              />
+              <div class="select-box">
+                <select value={Language} onChange={handleLanguageChange}>
+                  <option hidden>Language</option>
+                  <option value="Hindi">Hindi</option>
+                  <option option="English">English</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button onClick={(e) => handleSave(e)}>Submit</button>
+        </form>
+      </section>
+    </>
+  );
 }
 export default RegistrationPatient;

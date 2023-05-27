@@ -69,7 +69,7 @@ function ContactUs() {
         width: "100%",
       }}
     >
-      <div className="container">
+      <div className="container contact-us">
         <div className="left-page" style={{ width: "40%" }}>
           <header style={{ width: "400px" }}>Let's Get In Touch</header>
           <br />
@@ -89,9 +89,9 @@ function ContactUs() {
           >
             Contact Us
           </header>
-          <div className="form-container">
-            <form action="submit">
-              <div className="form">
+          <div className="form-container contact-us">
+            <form action="submit" style={{width:"70%"}}>
+              <div className="form contact-us">
                 <div className="input-box">
                   <label>Name:</label>
                   <input

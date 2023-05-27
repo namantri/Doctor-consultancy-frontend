@@ -13,9 +13,8 @@
   padding: 20px;
   background: rgb(255, 255, 255);
 } */
-.container {
+.container.registration.doctor {
   position: relative;
-  max-width: 700px;
   width: 100%;
   background: #fff;
   padding: 25px;

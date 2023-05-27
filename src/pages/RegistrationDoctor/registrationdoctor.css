@@ -13,7 +13,7 @@
   padding: 20px;
   background: rgb(255, 255, 255);
 } */
-.container {
+.container.registration.doctor {
   position: relative;
   background: #fff;
   padding: 25px;
